@@ -1,12 +1,11 @@
 <?php
 require 'mailer/PHPMailerAutoload.php';
-$asunto = $_POST['subject'];
+$asunto = "Suscripción a premios MarcaGto";
 $datos = $_POST['data'];
-var_dump($datos);
-$llena = infoCorreo();//$name,$mail_to,$informacion,$tel
-//$manda = enviarCorreo($asunto,$llena);
+$llena = infoCorreo($datos);
+$manda = enviarCorreo($asunto,$llena);
 
-function infoCorreo(){//$name,$mail_to,$informacion,$tel
+function infoCorreo($datos){//$name,$mail_to,$informacion,$tel
     $cuerpo_correo ="<!DOCTYPE html>
         <html>
         <head>
@@ -46,7 +45,12 @@ function infoCorreo(){//$name,$mail_to,$informacion,$tel
               </div>
             </center>
             <div class='content'>
-                    HOLAAA
+                    Género: $datos[0]<br>
+                    Nombre: $datos[1]<br>
+                    Correo: $datos[2]<br>
+                    Teléfono: $datos[3]<br>
+                    Fecha de nacimiento: $datos[4]<br>
+                    Intereses: $datos[5]<br>
             </div>
 			<div class='footer'>
             </div>
