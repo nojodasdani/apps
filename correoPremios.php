@@ -56,7 +56,7 @@ function infoCorreo($datos){//$name,$mail_to,$informacion,$tel
             </div>
 		</body>
         </html>";
-    $array = array("danieel_eb_94@hotmail.com",$cuerpo_correo);
+    $array = array("premiosgto@proxtopic.com",$cuerpo_correo);
     return $array;
 }
 
@@ -77,6 +77,8 @@ function enviarCorreo($asunto, $info){
     $mailer->Subject = $mail_subject;
     $mailer->MsgHTML($info[1]);
     $mailer->AddAddress($info[0]);
+    $mailer->AddAddress('daniel@opion-tech.com');
+    $mailer->AddAddress('manuel.module@gmail.com');
     $result = $mailer->Send();
     return $result;
 }
