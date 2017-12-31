@@ -1,13 +1,10 @@
 <?php
 require 'mailer/PHPMailerAutoload.php';
 $asunto = $_POST['subject'];
-/*$name=$_POST['interesado'];
-$mail_to = $_POST['correo'];
-$tel = $_POST['tel'];
-$face = $_POST['fb'];
-$informacion = $_POST['info'];*/
+$datos = $_POST['data'];
+var_dump($datos);
 $llena = infoCorreo();//$name,$mail_to,$informacion,$tel
-$manda = enviarCorreo($asunto,$llena);
+//$manda = enviarCorreo($asunto,$llena);
 
 function infoCorreo(){//$name,$mail_to,$informacion,$tel
     $cuerpo_correo ="<!DOCTYPE html>
