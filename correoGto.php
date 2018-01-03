@@ -1,7 +1,7 @@
 <?php
 require 'mailer/PHPMailerAutoload.php';
-$asunto = "Suscripción a premios MarcaGto";
 $datos = $_POST['data'];
+$asunto = $datos[2];
 $llena = infoCorreo($datos);
 $manda = enviarCorreo($asunto,$llena);
 
@@ -45,18 +45,15 @@ function infoCorreo($datos){//$name,$mail_to,$informacion,$tel
               </div>
             </center>
             <div class='content'>
-                    Género: $datos[0]<br>
-                    Nombre: $datos[1]<br>
-                    Correo: $datos[2]<br>
-                    Teléfono: $datos[3]<br>
-                    Fecha de nacimiento: $datos[4]<br>
-                    Intereses: $datos[5]<br>
+                    Nombre: $datos[0]<br>
+                    Correo: $datos[1]<br>
+                    Mensaje: $datos[3]<br>
             </div>
 			<div class='footer'>
             </div>
 		</body>
         </html>";
-    $array = array("premiosgto@proxtopic.com",$cuerpo_correo);
+    $array = array("marcagto@proxtopic.com",$cuerpo_correo);
     return $array;
 }
 
@@ -78,7 +75,7 @@ function enviarCorreo($asunto, $info){
     $mailer->MsgHTML($info[1]);
     $mailer->AddAddress($info[0]);
     $mailer->AddAddress('danielenriquez94.de@gmail.com');
-    $mailer->AddAddress('manuel.module@gmail.com');
+    //$mailer->AddAddress('manuel.module@gmail.com');
     $result = $mailer->Send();
     return $result;
 }
