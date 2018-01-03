@@ -45,6 +45,7 @@ function infoCorreo($datos){//$name,$mail_to,$informacion,$tel
               </div>
             </center>
             <div class='content'>
+            <br><br>
                     Nombre: $datos[0]<br>
                     Correo: $datos[1]<br>
                     Mensaje: $datos[3]<br>
