@@ -1,7 +1,7 @@
 <?php
 require 'mailer/PHPMailerAutoload.php';
 $datos = $_POST['data'];
-$asunto = $datos[2];
+$asunto = $datos[4];
 $llena = infoCorreo($datos);
 $manda = enviarCorreo($asunto,$llena);
 
@@ -47,8 +47,12 @@ function infoCorreo($datos){//$name,$mail_to,$informacion,$tel
             <div class='content'>
             <br><br>
                     Nombre: $datos[0]<br>
-                    Correo: $datos[1]<br>
-                    Mensaje: $datos[3]<br>
+                    Apellido Paterno: $datos[1]<br>
+                    Apellido Materno: $datos[2]<br>
+                    Correo: $datos[3]<br>
+                    Mensaje: $datos[5]<br>
+                    Municipio: $datos[6]<br>
+                    Teléfono: $datos[7]<br>
             </div>
 			<div class='footer'>
             </div>
@@ -71,12 +75,12 @@ function enviarCorreo($asunto, $info){
     $mailer->Username = 'no-reply@opion-tech.com';
     $mailer->Password = 'opionNOreply2017';
     //$mailer->SMTPDebug = 4;
-    $mailer->SetFrom('no-reply@opion-tech.com', "OPION");
+    $mailer->SetFrom('no-reply@opion-tech.com', "Opion");
     $mailer->Subject = $mail_subject;
     $mailer->MsgHTML($info[1]);
     $mailer->AddAddress($info[0]);
-    $mailer->AddAddress('danielenriquez94.de@gmail.com');
-    //$mailer->AddAddress('manuel.module@gmail.com');
+    //$mailer->AddAddress('danielenriquez94.de@gmail.com');
+    $mailer->AddAddress('manuel.module@gmail.com');
     $result = $mailer->Send();
     return $result;
 }

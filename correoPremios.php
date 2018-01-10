@@ -48,10 +48,13 @@ function infoCorreo($datos){//$name,$mail_to,$informacion,$tel
                 <br><br>
                     Género: $datos[0]<br>
                     Nombre: $datos[1]<br>
-                    Correo: $datos[2]<br>
-                    Teléfono: $datos[3]<br>
-                    Fecha de nacimiento: $datos[4]<br>
-                    Intereses: $datos[5]<br>
+                    Apellido Paterno: $datos[2]<br>
+                    Apellido Materno: $datos[3]<br>
+                    Correo: $datos[4]<br>
+                    Teléfono: $datos[5]<br>
+                    Fecha de nacimiento: $datos[6]<br>
+                    Intereses: $datos[7]<br>
+                    Municipio: $datos[8]<br>
             </div>
 			<div class='footer'>
             </div>
@@ -74,11 +77,11 @@ function enviarCorreo($asunto, $info){
     $mailer->Username = 'no-reply@opion-tech.com';
     $mailer->Password = 'opionNOreply2017';
     //$mailer->SMTPDebug = 4;
-    $mailer->SetFrom('no-reply@opion-tech.com', "OPION");
+    $mailer->SetFrom('no-reply@opion-tech.com', "Opion");
     $mailer->Subject = $mail_subject;
     $mailer->MsgHTML($info[1]);
     $mailer->AddAddress($info[0]);
-    $mailer->AddAddress('danielenriquez94.de@gmail.com');
+    //$mailer->AddAddress('danielenriquez94.de@gmail.com');
     $mailer->AddAddress('manuel.module@gmail.com');
     $result = $mailer->Send();
     return $result;
