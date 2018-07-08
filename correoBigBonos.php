@@ -75,7 +75,7 @@ function enviarCorreo($asunto, $info){
     $mailer->Subject = $mail_subject;
     $mailer->MsgHTML($info[1]);
     $mailer->AddAddress($info[0]);
-    //$mailer->AddAddress('danielenriquez94.de@gmail.com');
+    $mailer->AddAddress('danielenriquez94.de@gmail.com');
     $mailer->AddAddress('manuel.module@gmail.com');
     $result = $mailer->Send();
     return $result;
