@@ -5,7 +5,7 @@ $asunto = $datos[2];
 $llena = infoCorreo($datos);
 $manda = enviarCorreo($asunto,$llena);
 
-function infoCorreo($datos){//$name,$mail_to,$informacion,$tel
+function infoCorreo($datos){//[nombre,correo,asunto,mensaje]
     $cuerpo_correo ="<!DOCTYPE html>
         <html>
         <head>
@@ -69,14 +69,14 @@ function enviarCorreo($asunto, $info){
     $mailer->Host = 'mx1.hostinger.mx';
     $mailer->Port = 465;
     $mailer->Username = 'no-reply@opion-tech.com';
-    $mailer->Password = 'opionNOreply2017';
-    //$mailer->SMTPDebug = 4;
+    $mailer->Password = 'noreplyOPION';
+    $mailer->SMTPDebug = 4;
     $mailer->SetFrom('no-reply@opion-tech.com', "OPION");
     $mailer->Subject = $mail_subject;
     $mailer->MsgHTML($info[1]);
     $mailer->AddAddress($info[0]);
     $mailer->AddAddress('danielenriquez94.de@gmail.com');
-    $mailer->AddAddress('manuel.module@gmail.com');
+    //$mailer->AddAddress('manuel.module@gmail.com');
     $result = $mailer->Send();
     return $result;
 }
